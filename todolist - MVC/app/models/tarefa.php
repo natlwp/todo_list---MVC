@@ -41,6 +41,14 @@ class Tarefa{
         $sql = "DELETE FROM tarefas WHERE id = $id"; 
         return $this->conn->query($sql); 
     }
+
+
+    public function editar($descricao, $id){
+        $id = intval($id);
+        $descricao = $this-> conn-> real_escape_string($descricao);
+        $sql = "UPDATE tarefas SET descricao = '$descricao' WHERE id = $id";
+        return $this->conn->query($sql);
+    }
 }
 
 ?>
